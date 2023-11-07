@@ -1,3 +1,4 @@
 target/
 .idea/
 ecommerce.iml
+.DS_Store
