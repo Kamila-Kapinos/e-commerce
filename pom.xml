@@ -6,7 +6,7 @@
 
     <groupId>pl.kkapinos</groupId>
     <artifactId>my-ecommerce</artifactId>
-    <version>1.0</version>
+    <version>0.1</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
