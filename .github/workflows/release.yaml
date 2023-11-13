@@ -1,4 +1,4 @@
-name: Release my app
+name: Release my application
 on: [push]
 jobs:
   StaticCodeAnalysis:
