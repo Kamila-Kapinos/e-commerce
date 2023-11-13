@@ -44,5 +44,3 @@ jobs:
           artifacts: "target/my-ecommerce-0.1.jar"
           body: my first release
           name: My pre release for ecommerce application
-
-          
