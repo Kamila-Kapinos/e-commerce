@@ -37,15 +37,15 @@ public class App {
         productCatalog.changePrice(productId1, BigDecimal.TEN);
         productCatalog.publishProduct(productId1);
 
-        String productId2 = productCatalog.addProduct("Sila stresu", "Kelly McGonigal");
-        productCatalog.assignImage(productId2, "https://images.unsplash.com/photo-1619167316217-c1c8f8ac1dff?q=80&w=2835&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-        productCatalog.changePrice(productId2, BigDecimal.TEN);
-        productCatalog.publishProduct(productId2);
+        // String productId2 = productCatalog.addProduct("Sila stresu", "Kelly McGonigal");
+        // productCatalog.assignImage(productId2, "https://images.unsplash.com/photo-1619167316217-c1c8f8ac1dff?q=80&w=2835&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        // productCatalog.changePrice(productId2, BigDecimal.TEN);
+        // productCatalog.publishProduct(productId2);
 
-        String productId3 = productCatalog.addProduct("Sila stresu", "Kelly McGonigal");
-        productCatalog.assignImage(productId3, "https://images.unsplash.com/photo-1612817288765-6d2b644c762e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-        productCatalog.changePrice(productId3, BigDecimal.TEN);
-        productCatalog.publishProduct(productId3);
+        // String productId3 = productCatalog.addProduct("Sila stresu", "Kelly McGonigal");
+        // productCatalog.assignImage(productId3, "https://images.unsplash.com/photo-1612817288765-6d2b644c762e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        // productCatalog.changePrice(productId3, BigDecimal.TEN);
+        // productCatalog.publishProduct(productId3);
 
         return productCatalog;
     }
