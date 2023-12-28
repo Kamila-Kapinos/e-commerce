@@ -2,12 +2,10 @@ package pl.kkapinos.productcatalog;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class CatalogController {
@@ -21,6 +19,15 @@ public class CatalogController {
     @GetMapping("/api/products")
     List<Product> allProducts() {
         return productCatalog.allPublishedProducts();
+    }
+
+    @GetMapping("/api/products/{productId}")
+    public ResponseEntity<Product> getProductById(@PathVariable String productId) {
+        Optional<Product> productOptional = Optional.ofNullable(productCatalog.loadById(productId));
+
+        return productOptional
+                .map(product -> new ResponseEntity<>(product, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/api/products/create")
