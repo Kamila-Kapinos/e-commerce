@@ -34,7 +34,7 @@ public class CollectingProductsTest {
     void itAllowsToAddProduct() {
         //ARRANGE
         Sales sales = thereIsSalesModule();
-        String product1 = thereIsProduct("Lego set", BigDecimal.valueOf(10.10));
+        String product1 = thereIsProduct("Lego set", BigDecimal.valueOf(10.10), "toy");
         String customerId = thereIsCustomer("Kuba");
 
         //Act
@@ -48,8 +48,8 @@ public class CollectingProductsTest {
     public void itAllowAddProductToCartByMultipleCustomers() {
         //Arrange
         Sales sales = thereIsSalesModule();
-        String productId1 = thereIsProduct("lego set 1", BigDecimal.valueOf(10.10));
-        String productId2 = thereIsProduct("lego set 2", BigDecimal.TEN);
+        String productId1 = thereIsProduct("lego set 1", BigDecimal.valueOf(10.10), "toy");
+        String productId2 = thereIsProduct("lego set 2", BigDecimal.TEN, "toy");
 
         String customerId1 = thereIsCustomer("Kuba");
         String customerId2 = thereIsCustomer("Michal");
@@ -68,8 +68,8 @@ public class CollectingProductsTest {
     public void itGenerateOfferBasedOnCurrentCart() {
         //Arrange
         Sales sales = thereIsSalesModule();
-        String productId1 = thereIsProduct("lego set 1", BigDecimal.valueOf(10.10));
-        String productId2 = thereIsProduct("lego set 2", BigDecimal.valueOf(20.10));
+        String productId1 = thereIsProduct("lego set 1", BigDecimal.valueOf(10.10), "toy");
+        String productId2 = thereIsProduct("lego set 2", BigDecimal.valueOf(20.10), "toy");
 
         String customerId = thereIsCustomer("Kuba");
 
@@ -102,9 +102,9 @@ public class CollectingProductsTest {
         return id;
     }
 
-    private String thereIsProduct(String name, BigDecimal price) {
+    private String thereIsProduct(String name, BigDecimal price, String type) {
         String id = UUID.randomUUID().toString();
-        productDetails.add(new ProductDetails(id, name, price));
+        productDetails.add(new ProductDetails(id, name, price, type));
 
         return id;
     }

@@ -23,7 +23,7 @@ public class ProductCatalogTest {
         //Arrange
         ProductCatalog catalog = thereIsProductCatalog();
         //Act
-        String productId = catalog.addProduct("lego set 8083", "nice one");
+        String productId = catalog.addProduct("lego set 8083", "nice one", "toy");
 
         //Assert
         List<Product> products = catalog.allProducts();
@@ -34,7 +34,7 @@ public class ProductCatalogTest {
     void itAllowsToLoadProductDetails() {
         ProductCatalog catalog = thereIsProductCatalog();
 
-        String productId = catalog.addProduct("lego set 8083", "nice one");
+        String productId = catalog.addProduct("lego set 8083", "nice one", "toy");
 
         Product loadedProduct = catalog.loadById(productId);
         assert loadedProduct.getId().equals(productId);
@@ -44,7 +44,7 @@ public class ProductCatalogTest {
     @Test
     void itAllowsToChangePrice() {
         ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
+        String productId = catalog.addProduct("lego set 8083", "nice one", "toy");
 
         catalog.changePrice(productId, BigDecimal.valueOf(20.20));
 
@@ -55,7 +55,7 @@ public class ProductCatalogTest {
     @Test
     void itAllowsToAssignImage() {
         ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
+        String productId = catalog.addProduct("lego set 8083", "nice one", "toy");
 
         catalog.assignImage(productId, "foo/boo/nice_image.jpeg");
 
@@ -66,7 +66,7 @@ public class ProductCatalogTest {
     @Test
     void itAllowsToPublishProduct() {
         ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
+        String productId = catalog.addProduct("lego set 8083", "nice one", "toy");
         catalog.changePrice(productId, BigDecimal.valueOf(10));
         catalog.assignImage(productId, "nice.jpeg");
 
@@ -80,7 +80,7 @@ public class ProductCatalogTest {
     @Test
     void draftProductsAreNotListedForBeingSold() {
         ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
+        String productId = catalog.addProduct("lego set 8083", "nice one", "toy");
 
         List<Product> publishedProducts = catalog.allPublishedProducts();
         assertEquals(0, publishedProducts.size());
@@ -89,7 +89,7 @@ public class ProductCatalogTest {
     @Test
     void publicationIsPossibleWhenPriceAndImageAreDefined() {
         ProductCatalog catalog = thereIsProductCatalog();
-        String productId = catalog.addProduct("lego set 8083", "nice one");
+        String productId = catalog.addProduct("lego set 8083", "nice one", "toy");
 
         assertThrows(
                 ProductCantBePublishedException.class,

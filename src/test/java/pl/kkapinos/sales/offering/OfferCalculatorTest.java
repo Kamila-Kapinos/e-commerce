@@ -32,8 +32,8 @@ public class OfferCalculatorTest {
 
     @Test
     public void itCreateOfferBasedOnCartItems() {
-        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(10.10));
-        String product2 = thereIsProduct("Lego set 2", BigDecimal.valueOf(20.10));
+        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(10.10), "toy");
+        String product2 = thereIsProduct("Lego set 2", BigDecimal.valueOf(20.10), "toy");
         List<CartItem> cartItems = Arrays.asList(
                 new CartItem(product1, 2),
                 new CartItem(product2, 1)
@@ -49,7 +49,7 @@ public class OfferCalculatorTest {
 
     @Test
     public void itAllowsToApplyTotalDiscount() {
-        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(100));
+        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(100), "toy");
         List<CartItem> cartItems = Arrays.asList(
                 new CartItem(product1, 1)
         );
@@ -65,7 +65,7 @@ public class OfferCalculatorTest {
     @ParameterizedTest
     @MethodSource("getTotalDiscounts")
     public void itAllowsToApplyTotalDiscount(TotalDiscountPolicy policy, BigDecimal result) {
-        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(100));
+        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(100), "toy");
         List<CartItem> cartItems = Arrays.asList(
                 new CartItem(product1, 1)
         );
@@ -88,7 +88,7 @@ public class OfferCalculatorTest {
 
     @Test
     public void itAllowsToApplyDiscountPerLine() {
-        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(100));
+        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(100), "toy");
         List<CartItem> cartItems = Arrays.asList(
                 new CartItem(product1, 5)
         );
@@ -104,7 +104,7 @@ public class OfferCalculatorTest {
     @ParameterizedTest
     @MethodSource("getLinesDiscounts")
     public void itAllowsToApplyDiscountPerLine(EveryNItemLineDiscountPolicy policy, Integer itemsCount, BigDecimal result) {
-        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(100));
+        String product1 = thereIsProduct("Lego set 1", BigDecimal.valueOf(100), "toy");
         List<CartItem> cartItems = Arrays.asList(
                 new CartItem(product1, itemsCount)
         );
@@ -132,9 +132,9 @@ public class OfferCalculatorTest {
         return new TotalDiscountPolicy(total, discountValue);
     }
 
-    private String thereIsProduct(String name, BigDecimal price) {
+    private String thereIsProduct(String name, BigDecimal price, String type) {
         String id = UUID.randomUUID().toString();
-        this.productDetails.add(new ProductDetails(id, name, price));
+        this.productDetails.add(new ProductDetails(id, name, price, type));
         return id;
     }
 

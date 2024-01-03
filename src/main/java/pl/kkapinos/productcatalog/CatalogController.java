@@ -31,9 +31,9 @@ public class CatalogController {
     }
 
     @PostMapping("/api/products/create")
-    public ResponseEntity<String> addProduct(@RequestParam String name, @RequestParam String desc) {
+    public ResponseEntity<String> addProduct(@RequestParam String name, @RequestParam String desc, @RequestParam String type) {
         try {
-            String productId = productCatalog.addProduct(name, desc);
+            String productId = productCatalog.addProduct(name, desc, type);
             return ResponseEntity.status(HttpStatus.CREATED).body("Product added successfully. Product ID: " + productId);
         } catch (ProductCantBePublishedException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Product cannot be published.");

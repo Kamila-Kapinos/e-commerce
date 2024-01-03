@@ -37,7 +37,7 @@ public class OfferAcceptanceHTTPTest {
     @Test
     void itAllowsToAcceptOffer() {
         Sales sales = thereIsSalesModule();
-        String product = thereIsProduct("Lego set", BigDecimal.valueOf(10.10));
+        String product = thereIsProduct("Lego set", BigDecimal.valueOf(10.10), "toy");
         String customerId = thereIsCustomer("Kamila");
 
         sales.addToCart(customerId, product);
@@ -93,9 +93,9 @@ public class OfferAcceptanceHTTPTest {
         return customerId;
     }
 
-    private String thereIsProduct(String name, BigDecimal price) {
+    private String thereIsProduct(String name, BigDecimal price, String type) {
         String id = UUID.randomUUID().toString();
-        productDetails.add(new ProductDetails(id, name, price));
+        productDetails.add(new ProductDetails(id, name, price, type));
 
         return id;
     }

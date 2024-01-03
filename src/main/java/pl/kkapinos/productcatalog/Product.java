@@ -10,11 +10,13 @@ public class Product {
     private BigDecimal price;
     private String image;
     private boolean online;
+    private String type;
 
-    public Product(UUID uuid, String name, String desc) {
+    public Product(UUID uuid, String name, String desc, String type) {
         this.uuid = uuid.toString();
         this.name = name;
         this.desc = desc;
+        this.type = type;
     }
 
     public String getId() {
@@ -54,4 +56,6 @@ public class Product {
     public boolean getOnline() {
         return online;
     }
+
+    public String getType(){ return type; }
 }

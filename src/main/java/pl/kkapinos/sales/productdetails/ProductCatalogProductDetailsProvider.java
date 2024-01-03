@@ -22,7 +22,7 @@ public class ProductCatalogProductDetailsProvider implements ProductDetailsProvi
             return Optional.empty();
         }
 
-        ProductDetails productDetails = new ProductDetails(product.getId(), product.getName(), product.getPrice());
+        ProductDetails productDetails = new ProductDetails(product.getId(), product.getName(), product.getPrice(), product.getType());
         return Optional.of(productDetails);
     }
 }
