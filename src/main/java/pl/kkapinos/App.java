@@ -83,6 +83,16 @@ public class App {
         productCatalog.changePrice(productId10, BigDecimal.TEN);
         productCatalog.publishProduct(productId10);
 
+        String productId11 = productCatalog.addProduct("Three ships lip products", "Lip duo for better care", "set");
+        productCatalog.assignImage(productId11, "https://images.unsplash.com/photo-1638404431939-3943201c8a86?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        productCatalog.changePrice(productId11, BigDecimal.TEN);
+        productCatalog.publishProduct(productId11);
+
+        String productId12 = productCatalog.addProduct("Natural skincare products", "Cream, serum and eye cream", "set");
+        productCatalog.assignImage(productId12, "https://images.unsplash.com/photo-1601049315503-07926a49f521?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        productCatalog.changePrice(productId12, BigDecimal.TEN);
+        productCatalog.publishProduct(productId12);
+
         return productCatalog;
     }
 
